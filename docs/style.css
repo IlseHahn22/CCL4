@@ -454,3 +454,49 @@ footer strong { color: var(--brown); font-weight: 500; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* ── SYSTEM DESIGN ── */
+.system-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.system-col h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.system-col p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.system-col ul {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.system-col ul li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 300;
+  padding: 0.2rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.system-col ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+}
+
+@media (max-width: 640px) {
+  .system-grid { grid-template-columns: 1fr; }
+}
