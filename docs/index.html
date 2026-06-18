@@ -72,7 +72,7 @@
       <h3>Characters</h3>
       <p><strong>Nikki</strong> —> main character. Player will be exploring the rooms throught the dollhouse where the goal is to find the right objects that will help Nikki return</p>
       <p><strong>Cat</strong> —> narrator. Guides Nikki throughout each room, giving directions and clues when asked.</p>
-      <p><strong>Wind-up toy</strong> —> enemy. Patrols all rooms. When Nikki enters their detection range they start following her.</p>
+      <p><strong>Wind-up toy</strong> —> Enemy. Patrols all rooms. When Nikki enters their detection range they start following her.</p>
     </div>
 
     <div class="system-col">
@@ -89,6 +89,18 @@
       <p><strong>Puzzle system</strong> —> Each piece has a unique ID matched to a slot on the board. Carrying a piece to its correct slot and pressing E snaps it into place. Completing the board reveals a memory image and unlocks the next room.</p>
     </div>
 
+  </div>
+  <div style="margin-top: 2.5rem;">
+ 
+    <h3>Player Systems</h3>
+    <p>Nikki moves with WASD relative to the camera direction. She can jump, grab ledges and climb up onto furniture and surfaces. Pressing E picks up the nearest object in range and carries it. Pressing E again drops it. Large furniture cannot be picked up but can be pushed by walking into it. Health persists across all rooms and is deducted on enemy contact.</p>
+ 
+    <h3 style="margin-top: 1.5rem;">Puzzle System</h3>
+    <p>Each room contains jigsaw puzzle pieces hidden in hard-to-reach places. Every piece has a unique ID matched to a specific slot on the puzzle board. Nikki carries a piece to its correct slot and presses E to snap it in. When all slots are filled a memory image is revealed and the door to the next room unlocks.</p>
+ 
+    <h3 style="margin-top: 1.5rem;">Enemy &a Progression</h3>
+    <p>One enemy type — the wind-up toy soldier — patrols each room. It detects Nikki when she enters its range, chases her, and returns to patrol if she escapes. A GameManager persists health, puzzle state and room completion across all four scenes. After all rooms are complete a key materialises. Nikki finds the front door, uses it, and wakes up.</p>
+ 
   </div>
 </section>
 <div class="divider"></div>
@@ -209,9 +221,7 @@
         <li>Small props - pickup, carry, drop with physics</li>
         <li>Pushable objects - physics-based, no pickup required</li>
         <li>Puzzle system - ID-matched pieces, snap to slot, completion trigger</li>
-        <li>Puzzle board - memory image reveal, door unlock on completion</li>
-        <li>Kitchen scene - room layout with assets</li>
-        <li>Player prefab - saved, committed to GitLab</li>
+        <li>Playroom scene - room layout with assets & our models</li>
       </ul>
     </div>
  
@@ -224,6 +234,7 @@
         <li>Health system - damage on enemy contact</li>
         <li>Room connections - linking all four scenes</li>
         <li>3D assets - team modelling in Blender, import ongoing</li>
+        <li>Puzzle board - memory image reveal, door unlock on completion</li>
         <li>Audio - WWise integration and sound hooks</li>
       </ul>
     </div>
@@ -255,22 +266,18 @@
     <div class="team-card">
       <div class="team-initial">I</div>
       <h3>Ilse</h3>
-      <p>Unity dev </p>
     </div>
     <div class="team-card">
       <div class="team-initial">M</div>
       <h3>Mahmut</h3>
-      <p>3D artist </p>
     </div>
     <div class="team-card">
       <div class="team-initial">A</div>
       <h3>Aru</h3>
-      <p>Unity dev </p>
     </div>
     <div class="team-card">
       <div class="team-initial">S</div>
       <h3>Sofi</h3>
-      <p>3D artist </p>
     </div>
   </div>
 </section>
