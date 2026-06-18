@@ -16,6 +16,7 @@
     <li><a href="#Inspo">Moodboard and Inspo</a></li>
     <li><a href="#systemInfrastructure">System Infrastructure</a></li>
     <li><a href="#mechanics">Gameplay</a></li>
+    <li><a href="#features">Feature Development Status</a></li>
     <li><a href="#team">Team</a></li>
   </ul>
 </nav>
@@ -81,6 +82,13 @@
       <p><strong>Other characters</strong> - each character has sounds corresponding to their role. (enemy → evil sound and etc)</p>
     </div>
 
+     <div class="system-col">
+      <h3>Player & Interaction</h3>
+      <p><strong>Movement</strong> -> WASD movement relative to camera direction with smooth rotation. Space to jump, F to climb ledges.</p>
+      <p><strong>Interaction</strong> —> E key picks up and drops objects. Every interactable object implements a shared <code>IInteractable</code> interface. Puzzle pieces, small props, and doors are all interactable. Large furniture is physics-only and can be pushed by walking into it.</p>
+      <p><strong>Puzzle system</strong> —> Each piece has a unique ID matched to a slot on the board. Carrying a piece to its correct slot and pressing E snaps it into place. Completing the board reveals a memory image and unlocks the next room.</p>
+    </div>
+
   </div>
 </section>
 <div class="divider"></div>
@@ -102,6 +110,36 @@
   <div class="section-label">System Infrastructure</div>
   <h2>Class relationships</h2>
   <img src="images/system infrastructure.png" alt="Class Diagram" class="class-diagram" style="width: 60%; display: block; margin: 1.5rem auto 0;">
+
+  <div class="system-grid" style="margin-top: 2rem;">
+    <div class="system-col">
+      <h3>Player</h3>
+      <ul>
+        <li><strong>PlayerMovement</strong> —> WASD, camera-relative, Slerp rotation</li>
+        <li><strong>PlayerJump</strong> —> BoxCast ground check, LayerMask, impulse force</li>
+        <li><strong>PlayerClimb</strong> —> SphereCast ledge detection, smooth climb coroutine</li>
+        <li><strong>PlayerInteract</strong> —> OverlapSphere, closest IInteractable, puzzle board detection</li>
+      </ul>
+    </div>
+    <div class="system-col">
+      <h3>Interaction</h3>
+      <ul>
+        <li><strong>IInteractable</strong> —> interface for all interactive objects</li>
+        <li><strong>SmallProp</strong> —> pickup, carry arc, drop with physics</li>
+        <li><strong>PuzzlePiece</strong> —> pickup, carry, snap to board slot, locked after placement</li>
+        <li><strong>PushableObject</strong> —> physics-based push on collision, no pickup</li>
+      </ul>
+    </div>
+    <div class="system-col">
+      <h3>Puzzle</h3>
+      <ul>
+        <li><strong>PuzzleBoard</strong> —> ID matching, placement validation, completion trigger</li>
+        <li><strong>PuzzleSlot</strong> —> slotID, snap point transform, fill state</li>
+        <li>On completion: memory image revealed, door to next room unlocked</li>
+        <li>GameManager tracks completion state across all four rooms</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 
@@ -153,6 +191,60 @@
 </section>
 
 <div class="divider"></div>
+
+<section id="features">
+  <div class="section-label">Feature Development Status</div>
+  <h2>What we built</h2>
+ 
+  <div class="system-grid">
+ 
+    <div class="system-col">
+      <h3>Complete</h3>
+      <ul>
+        <li>Player movement - WASD, camera-relative, smooth rotation</li>
+        <li>Jump - ground detection, physics-based</li>
+        <li>Ledge climb - SphereCast detection, smooth coroutine</li>
+        <li>Interaction system - E key, IInteractable interface</li>
+        <li>Pick up & carry - small props & puzzle pieces</li>
+        <li>Small props - pickup, carry, drop with physics</li>
+        <li>Pushable objects - physics-based, no pickup required</li>
+        <li>Puzzle system - ID-matched pieces, snap to slot, completion trigger</li>
+        <li>Puzzle board - memory image reveal, door unlock on completion</li>
+        <li>Kitchen scene - room layout with assets</li>
+        <li>Player prefab - saved, committed to GitLab</li>
+      </ul>
+    </div>
+ 
+    <div class="system-col">
+      <h3>In Progress</h3>
+      <ul>
+        <li>Enemy - wind-up toy soldier patrol and chase with procedural Perlin noice path generation</li>
+        <li>Climbing - further debugging and edge case fixes</li>
+        <li>GameManager - cross-scene state persistence</li>
+        <li>Health system - damage on enemy contact</li>
+        <li>Room connections - linking all four scenes</li>
+        <li>3D assets - team modelling in Blender, import ongoing</li>
+        <li>Audio - WWise integration and sound hooks</li>
+      </ul>
+    </div>
+ 
+    <div class="system-col">
+      <h3>Planned</h3>
+      <ul>
+        <li>Character models - Nikki and NPCs replacing capsule placeholders</li>
+        <li>Animations - idle, walk, run, jump, climb, interact</li>
+        <li>Cat narrator - dialogue</li>
+        <li>Health bar UI</li>
+        <li>Start screen and main menu</li>
+        <li>Ending scene - key materialise, front door trigger, wake up</li>
+        <li>Final executable build</li>
+      </ul>
+    </div>
+ 
+  </div>
+</section>
+ <div class="divider"></div>
+
 
 <!-- ── TEAM ── -->
 <section id="team">
