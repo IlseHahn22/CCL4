@@ -12,11 +12,12 @@
   <a class="nav-logo" href="#">Fever Dream</a>
   <ul class="nav-links">
     <li><a href="#story">Initial Mock-up</a></li>
+    <li><a href="#howtorun">How to Run</a></li>
     <li><a href="#system">System Design</a></li>
     <li><a href="#Inspo">Moodboard and Inspo</a></li>
     <li><a href="#systemInfrastructure">System Infrastructure</a></li>
     <li><a href="#mechanics">Gameplay</a></li>
-    <li><a href="#features">Feature Development Status</a></li>
+    <li><a href="#features">Dev Status</a></li>
     <li><a href="#team">Team</a></li>
   </ul>
 </nav>
@@ -44,9 +45,52 @@
   
   <p>Feeling tired after a long journey home, she decides to take a nap. Once she awakens, her surroundings are are not the same, as she is clearly not in her bedroom, but nevertheless, there is something very familiar about the place she finds herself in. Eventually, the realization hits - her wish came true: She turned small, quite literally, and now has to wander around the rooms of her dollhouse.</p>
 
-  <p>Help Nikki collect objects and memory fragments to bring her back to her real life.</p>
+  <p>With the help of her cat narrator, Nikki must explore each room, find hidden puzzle pieces that represent her childhood memories, and rebuild them on the puzzle board. Once all three rooms are complete, a magical key appears. Nikki picks it up and escapes the fever dream — waking up with a renewed appreciation for both her childhood and her future.</p>
 
 </section>
+
+ 
+<div class="divider"></div>
+ 
+<!-- HOW TO RUN -->
+<section id="howtorun">
+  <div class="section-label">User Guideline</div>
+  <h2>How to Run the Program</h2>
+ 
+  <div class="system-grid" style="grid-template-columns: 1fr 1fr;">
+ 
+    <div class="system-col">
+      <h3>Installation</h3>
+      <ul>
+        <li>Unzip <strong>FeverDream_Binary.zip</strong></li>
+        <li>Double click <strong>FeverDream.exe</strong> to start</li>
+        <li>No installation or additional software required</li>
+        <li>Windows 10/11 recommended</li>
+      </ul>
+    </div>
+
+     <div class="system-col">
+      <h3>Controls</h3>
+      <ul>
+        <li><strong>WASD</strong> - Move</li>
+        <li><strong>Mouse</strong> - Look around</li>
+        <li><strong>E</strong> - Pick up / Place objects / Remember</li>
+        <li><strong>Space</strong> - Jump</li>
+        <li><strong>ESC</strong> - Pause menu</li>
+      </ul>
+    </div>
+ 
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <h3>How to Play</h3>
+    <p>Start the game from the main menu. You can read the "How to Play" instructions there or jump right in by clicking Start. Nikki wakes up inside her dollhouse. Explore each room - the Playroom, Kitchen, and Bedroom - to find hidden puzzle pieces scattered around furniture and hard-to-reach places. Pick up a piece with E and carry it to the puzzle board. Place it in the matching slot to restore a piece of Nikki's memory. The cat narrator will give you hints after each placement.</p>
+ 
+    <p>Be careful - a wind-up toy soldier patrols each room. If it catches Nikki, she loses health. Your health persists across all rooms, so avoid the enemy whenever possible. Once all three rooms are complete, a golden key appears in the room you are in. Pick it up and Nikki escapes the fever dream.</p>
+ 
+    <p>You can pause the game at any time with ESC. From the pause menu you can continue, return to the main menu, or quit the game.</p>
+  </div>
+</section> 
 
 <div class="divider"></div>
 <!-- ── SYSTEM DESIGN ── -->
@@ -57,42 +101,43 @@
   <div class="system-grid">
 
     <div class="system-col">
-      <h3>Scenes - Four rooms, four memories</h3>
-      <p>The dollhouse has 4 scenes — each room acts as the main scene as the player's journey progresses.</p>
+      <h3>Scenes - Three rooms, three memories</h3>
+      <p>The dollhouse has 5 scenes - a main menu, three playable rooms, and an ending screen..</p>
       <ul>
-        <li>Kitchen room (Ilse)</li>
         <li>Playroom (Sofija)</li>
+        <li>Kitchen (Ilse)</li>
         <li>Bedroom (Mahmut)</li>
-        <li>Art room (Aruzhan)</li>
+        <li>Ending - congratulations and chapter summary</li>
       </ul>
-      <p>The player starts in the kitchen and progresses by completing the task in each room. Tasks include finding and collecting specific objects.</p>
+      <p>The player can freely choose which room to enter next after completing a puzzle. Two doors in each room lead to the other two rooms.</p>
     </div>
 
     <div class="system-col">
       <h3>Characters</h3>
       <p><strong>Nikki</strong> —> main character. Player will be exploring the rooms throught the dollhouse where the goal is to find the right objects that will help Nikki return</p>
-      <p><strong>Cat</strong> —> narrator. Guides Nikki throughout each room, giving directions and clues when asked.</p>
+      <p><strong>Cat</strong> —> the narrator. Sits next to the puzzle board in each room. Gives hints about where to find puzzle pieces and tells stories about Nikki's childhood memories when she interacts with objects.</p>
       <p><strong>Wind-up toy</strong> —> Enemy. Patrols all rooms. When Nikki enters their detection range they start following her.</p>
     </div>
 
     <div class="system-col">
       <h3>Audio</h3>
-      <p><strong>Background melody</strong> - In rooms there will be a music box melody with some sounds of nature(birds, wind and trees)</p>
-      <p><strong>Character sounds</strong> - jumping, walking, grabbing, climbing</p>
-      <p><strong>Other characters</strong> - each character has sounds corresponding to their role. (enemy → evil sound and etc)</p>
+      <p><strong>Background music</strong> — unique track per room, stops on scene change, restarts on entry.</p>
+      <p><strong>Character sounds</strong> - jumping, walking, pushing, grabbing</p>
+      <p><strong>Other characters</strong> - each character has sounds corresponding to their role.</p>
+      <p><strong>Interaction sounds</strong> — puzzle piece placement, puzzle completion, object pickup, cat meow.</p>
     </div>
 
   </div>
   <div style="margin-top: 2.5rem;">
  
     <h3>Player Systems</h3>
-    <p>Nikki moves with WASD relative to the camera direction. She can jump, grab ledges and climb up onto furniture and surfaces. Pressing E picks up the nearest object in range and carries it. Pressing E again drops it. Large furniture cannot be picked up but can be pushed by walking into it. Health persists across all rooms and is deducted on enemy contact.</p>
+    <p>Nikki moves with WASD relative to the camera pivot direction. She can jump with physics-based impulse and BoxCast ground detection. Pressing E picks up the nearest interactable object using OverlapSphere with closest-object selection. Large furniture cannot be picked up but can be pushed by walking into it — physics-based force is applied on collision contact.</p>
  
     <h3 style="margin-top: 1.5rem;">Puzzle System</h3>
-    <p>Each room contains jigsaw puzzle pieces hidden in hard-to-reach places. Every piece has a unique ID matched to a specific slot on the puzzle board. Nikki carries a piece to its correct slot and presses E to snap it in. When all slots are filled a memory image is revealed and the door to the next room unlocks.</p>
+    <p>Each room contains puzzle pieces hidden in hard-to-reach places. Every piece has a unique ID matched to a specific slot on the puzzle board. Nikki carries a piece to its correct slot and presses E to snap it in. The cat gives a hint about the next unfound piece after each placement. The last piece triggers no hint — instead the completion dialogue plays. When all slots are filled, the doors to other rooms unlock. If the player revisits a completed room, the puzzle auto-completes based on the GameManager's persisted state.</p>
  
-    <h3 style="margin-top: 1.5rem;">Enemy &a Progression</h3>
-    <p>One enemy type — the wind-up toy soldier — patrols each room. It detects Nikki when she enters its range, chases her, and returns to patrol if she escapes. A GameManager persists health, puzzle state and room completion across all four scenes. After all rooms are complete a key materialises. Nikki finds the front door, uses it, and wakes up.</p>
+    <h3 style="margin-top: 1.5rem;">Enemy & Progression</h3>
+    <p>The wind-up toy soldier uses a self-implemented procedural path generation system — no NavMesh or AI library. Perlin noise creates smooth organic wandering patterns. Three fan raycasts (left, center, right) detect obstacles and steering rules decide the avoidance direction. Distance-based detection switches between wander and chase states. A GameManager singleton with DontDestroyOnLoad persists health, room completion status, and key availability across all scenes. After all three rooms are complete, a golden key materialises. Nikki picks it up and the ending scene loads.</p>
  
   </div>
 </section>
@@ -120,28 +165,37 @@
     <div class="system-col">
       <h3>Player</h3>
       <ul>
-        <li><strong>PlayerMovement</strong> —> WASD, camera-relative, Slerp rotation</li>
-        <li><strong>PlayerJump</strong> —> BoxCast ground check, LayerMask, impulse force</li>
-        <li><strong>PlayerClimb</strong> —> SphereCast ledge detection, smooth climb coroutine</li>
-        <li><strong>PlayerInteract</strong> —> OverlapSphere, closest IInteractable, puzzle board detection</li>
+        <li><strong>PlayerMovement</strong> - WASD, camera-pivot-relative, Slerp rotation</li>
+        <li><strong>PlayerJump</strong> - BoxCast ground check, LayerMask, impulse force</li>
+        <li><strong>PlayerInteract</strong> - OverlapSphere, closest IInteractable, puzzle board detection</li>
+        <li><strong>CameraPivotController</strong> - mouse yaw/pitch, clamped vertical</li>
+        <li><strong>CameraFollow</strong> - dual SphereCast anti-clipping, distance recovery</li>
       </ul>
     </div>
     <div class="system-col">
       <h3>Interaction</h3>
       <ul>
-        <li><strong>IInteractable</strong> —> interface for all interactive objects</li>
-        <li><strong>SmallProp</strong> —> pickup, carry arc, drop with physics</li>
-        <li><strong>PuzzlePiece</strong> —> pickup, carry, snap to board slot, locked after placement</li>
-        <li><strong>PushableObject</strong> —> physics-based push on collision, no pickup</li>
+        <li><strong>IInteractable</strong> - interface for all interactive objects</li>
+        <li><strong>SmallProp</strong> - pickup with arc animation, carry, drop, cat dialogue</li>
+        <li><strong>PuzzlePiece</strong> - pickup, carry, snap to board slot with ID matching</li>
+        <li><strong>PushableObject</strong> - physics-based push on collision</li>
+        <li><strong>StoryObject</strong> - inspect without pickup, triggers cat memory text</li>
+        <li><strong>KeyMaterialise</strong> - appears after all rooms complete, triggers ending</li>
+        <li><strong>InteractionPrompt</strong> - billboard UI above objects, distance-based</li>
       </ul>
     </div>
-    <div class="system-col">
-      <h3>Puzzle</h3>
+<div class="system-col">
+      <h3>Systems</h3>
       <ul>
-        <li><strong>PuzzleBoard</strong> —> ID matching, placement validation, completion trigger</li>
-        <li><strong>PuzzleSlot</strong> —> slotID, snap point transform, fill state</li>
-        <li>On completion: memory image revealed, door to next room unlocked</li>
-        <li>GameManager tracks completion state across all four rooms</li>
+        <li><strong>GameManager</strong> - singleton, DontDestroyOnLoad, persists health, room completion, key status</li>
+        <li><strong>PuzzleBoard</strong> - ID matching, placement validation, completion trigger, auto-complete</li>
+        <li><strong>PuzzleSlot</strong> - slotID, snap point transform, fill state</li>
+        <li><strong>PuzzleCounter</strong> - live UI tracking of found pieces per room</li>
+        <li><strong>DoorTrigger</strong> - scene transition on collision after puzzle completion</li>
+        <li><strong>CatDialogue</strong> - queue-based dialogue with TypingEffect</li>
+        <li><strong>CatNarrator</strong> - 3D cat, turns to player, speech bubble</li>
+        <li><strong>LiquidHealthUI</strong> - custom HLSL shader heart with wave animation</li>
+        <li><strong>ProceduralEnemyAI</strong> - Perlin noise wandering, fan raycast avoidance, chase FSM</li>
       </ul>
     </div>
   </div>
@@ -154,44 +208,53 @@
 <section id="mechanics">
   <div class="section-label">Gameplay</div>
   <h2>How it plays</h2>
-  <p>Nikki's Dollhouse is a navigation puzzle - the level design is the puzzle.</p>
+  <p>Nikki's Dollhouse is a navigation puzzle - the level design is the puzzle.Each room is a giant obstacle course where puzzle pieces are hidden in spaces that require exploration, climbing, and careful navigation to reach.</p>
 
   <div class="loop-steps">
     <div class="loop-step">
       <div class="step-num">1</div>
       <div class="step-content">
         <h3>Wake up tiny</h3>
-        <p>Nikki wakes up inside the dollhouse. The front door is visible but locked. The cat appears.</p>
+        <p>Nikki wakes up inside the dollhouse. The cat sits next to the puzzle board, ready to guide her.</p>
       </div>
     </div>
     <div class="loop-step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h3>Explore and climb</h3>
-        <p>Each room is a giant obstacle course. Nikki can walk, run, jump, grab ledges and climb. Puzzle pieces are hidden in spaces that require exploration to reach - on top of furniture, behind objects, inside tight spaces.</p>
+        <h3>Explore and jump</h3>
+        <p>Each room is a giant obstacle course. Nikki can walk, jump, and push furniture. Puzzle pieces are hidden on top of furniture, behind objects, under cushions, and in tight spaces. Interactive objects with story text reveal Nikki's childhood memories.</p>
       </div>
     </div>
     <div class="loop-step">
       <div class="step-num">3</div>
       <div class="step-content">
         <h3>Find and carry pieces</h3>
-        <p>Press E to pick up a puzzle piece and carry it. Bring it back to the puzzle board on the floor. Pieces snap into place when dropped into the correct slot.</p>
+        <p>Press E to pick up a puzzle piece and carry it. Bring it back to the puzzle board on the floor. Pieces snap into place when dropped into the correct slot.  The cat gives hints about where to find the next piece.</p>
       </div>
     </div>
     <div class="loop-step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <h3>Complete the picture</h3>
-        <p>After the fourth and final memory is restored, a key materialises. The cat nudges Nikki toward the front door.</p>
+        <h3>Avoid the enemy</h3>
+        <p>A wind-up toy soldier patrols each room. It wanders and chases Nikki when she gets too close. Health persists across all rooms - be careful!</p> a key materialises. The cat nudges Nikki toward the front door.</p>
       </div>
     </div>
     <div class="loop-step">
       <div class="step-num">5</div>
       <div class="step-content">
-        <h3>Escape</h3>
-        <p>Nikki walks to the front door, uses the key —> and wakes up.</p>
+        <h3>Complete and move on</h3>
+        <p>When all pieces are placed, the puzzle is complete and the doors to other rooms unlock. Choose which room to explore next. You can revisit completed rooms freely.</p>
       </div>
     </div>
+    <div class="loop-step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h3>Find the key and escape</h3>
+        <p>After all three rooms are complete, a golden key materialises. The cat tells Nikki it is time to go home. Pick up the key and escape the fever dream. The ending scene shows a congratulations message with each room as a chapter of Nikki's memories.</p>
+      </div>
+    </div>
+
+
   </div>
 </section>
 
@@ -218,40 +281,54 @@
             <li>Cat</li>
             <li></li>
           </ul>
-        <li>Ledge climb - SphereCast detection, smooth coroutine</li>
-        <li>Interaction system - E key, IInteractable interface</li>
-        <li>Pick up & carry - small props & puzzle pieces</li>
-        <li>Small props - pickup, carry, drop with physics</li>
-        <li>Pushable objects - physics-based, no pickup required</li>
-        <li>Puzzle system - ID-matched pieces, snap to slot, completion trigger</li>
         <li>Playroom scene - room layout with assets & our models</li>
       </ul>
     </div>
  
     <div class="system-col">
-      <h3>In Progress</h3>
+      <h3>Complete</h3>
       <ul>
-        <li>Enemy - wind-up toy soldier patrol and chase with procedural Perlin noice path generation</li>
-        <li>Climbing - further debugging and edge case fixes</li>
-        <li>GameManager - cross-scene state persistence</li>
-        <li>Health system - damage on enemy contact</li>
-        <li>Room connections - linking all four scenes</li>
-        <li>3D assets - team modelling in Blender, import ongoing</li>
-        <li>Puzzle board - memory image reveal, door unlock on completion</li>
-        <li>Audio - WWise integration and sound hooks</li>
+         <li>Player movement - WASD, camera-relative, smooth rotation</li>
+        <li>Jump - BoxCast ground detection, physics-based impulse</li>
+        <li>Interaction system - E key, IInteractable interface, OverlapSphere</li>
+        <li>Pick up and carry - small props and puzzle pieces with arc animation</li>
+        <li>Pushable objects - physics-based force on collision, no pickup</li>
+        <li>Story objects - inspect without pickup, cat memory text</li>
+        <li>Puzzle system - ID-matched pieces, snap to slot, completion trigger</li>
+        <li>Puzzle auto-complete - restores finished puzzles in revisited rooms</li>
+        <li>Puzzle counter UI - live tracking of found pieces per room</li>
+        <li>Cat dialogue - queue-based system with typing effect</li>
+        <li>Cat narrator - 3D model, idle animation, speech bubble, turns to player</li>
+        <li>Interaction prompts - billboard UI above objects</li>
+        <li>Enemy - procedural Perlin noise wandering, fan raycast avoidance, chase FSM</li>
+        <li>Health system - liquid heart shader, shake on damage, persistent across rooms</li>
+        <li>Key materialise - appears after all rooms complete, triggers ending</li>
+        <li>Door system - trigger-based scene transitions after puzzle completion</li>
+        <li>Scene management - GameManager singleton with DontDestroyOnLoad</li>
+        <li>Main menu - start, how to play overlay, quit</li>
+        <li>Pause menu - continue, main menu, quit</li>
+        <li>Ending scene - congratulations, chapter cards, main menu button</li>
+        <li>Camera system - pivot-based with dual SphereCast anti-clipping</li>
+        <li>Wwise audio - surface footsteps, enemy proximity RTPC, per-room music,...</li>
+        <li>Custom HLSL shader - liquid heart health bar with wave animation</li>
+        <li>Three playable rooms - Playroom, Kitchen, Bedroom</li>
+        <li>3D models - Nikki, cat, toy soldier, room environments</li>
+        <li>Windows executable build</li>
       </ul>
     </div>
- 
+
     <div class="system-col">
-      <h3>Planned</h3>
+      <h3>Future Improvements</h3>
       <ul>
-        <li>Character models - Nikki and NPCs replacing capsule placeholders</li>
-        <li>Animations - idle, walk, run, jump, climb, interact</li>
-        <li>Cat narrator - dialogue</li>
-        <li>Health bar UI</li>
-        <li>Start screen and main menu</li>
-        <li>Ending scene - key materialise, front door trigger, wake up</li>
-        <li>Final executable build</li>
+        <li>Character animations - walk, climb, fall</li>
+        <li>Ledge climbing mechanic</li>
+        <li>Push animation for pushable objects</li>
+        <li>Door animations - open/close with pivot rotation</li>
+        <li>More rooms - originally planned 4 rooms including an Art Room, reduced to 3 for quality</li>
+        <li>Difficulty balancing and playtesting</li>
+        <li>Save system - persist progress between sessions</li>
+        <li>Cutscenes - intro and ending sequences</li>
+        <li>Mobile and controller input support</li>
       </ul>
     </div>
  
@@ -277,59 +354,6 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
-
-<!-- <section id="features">
-  <div class="section-label">Feature Development</div>
-  <h2>Requirements Fulfillment</h2>
- 
-  <div class="system-grid">
- 
-    <div class="system-col">
-      <h3>3D Modeling</h3>
-      <ul>
-        <li>Player movement - WASD, camera-relative, smooth rotation</li>
-        <li>Jump - ground detection, physics-based</li>
-        <li>Ledge climb - SphereCast detection, smooth coroutine</li>
-        <li>Interaction system - E key, IInteractable interface</li>
-        <li>Pick up & carry - small props & puzzle pieces</li>
-        <li>Small props - pickup, carry, drop with physics</li>
-        <li>Pushable objects - physics-based, no pickup required</li>
-        <li>Puzzle system - ID-matched pieces, snap to slot, completion trigger</li>
-        <li>Playroom scene - room layout with assets & our models</li>
-      </ul>
-    </div>
- 
-    <div class="system-col">
-      <h3>In Progress</h3>
-      <ul>
-        <li>Enemy - wind-up toy soldier patrol and chase with procedural Perlin noice path generation</li>
-        <li>Climbing - further debugging and edge case fixes</li>
-        <li>GameManager - cross-scene state persistence</li>
-        <li>Health system - damage on enemy contact</li>
-        <li>Room connections - linking all four scenes</li>
-        <li>3D assets - team modelling in Blender, import ongoing</li>
-        <li>Puzzle board - memory image reveal, door unlock on completion</li>
-        <li>Audio - WWise integration and sound hooks</li>
-      </ul>
-    </div>
- 
-    <div class="system-col">
-      <h3>Planned</h3>
-      <ul>
-        <li>Character models - Nikki and NPCs replacing capsule placeholders</li>
-        <li>Animations - idle, walk, run, jump, climb, interact</li>
-        <li>Cat narrator - dialogue</li>
-        <li>Health bar UI</li>
-        <li>Start screen and main menu</li>
-        <li>Ending scene - key materialise, front door trigger, wake up</li>
-        <li>Final executable build</li>
-      </ul>
-    </div>
- 
-  </div>
-</section> -->
 
 <div class="divider"></div>
 
@@ -342,18 +366,23 @@
     <div class="team-card">
       <div class="team-initial">I</div>
       <h3>Ilse Hahn</h3>
+      <p>Mein Unity Development</p>
     </div>
     <div class="team-card">
       <div class="team-initial">M</div>
       <h3>Mahmut Dadali</h3>
+      <p>Sound Design</p>
     </div>
     <div class="team-card">
       <div class="team-initial">A</div>
       <h3>Aruzhan Saduakaskyzy</h3>
+      <p>3D Modeling and Animation, Unity Development</p>
     </div>
     <div class="team-card">
       <div class="team-initial">S</div>
       <h3>Sofija Radojevic</h3>
+      <p>3D Modeling and Animation, Unity Development</p>
+
     </div>
   </div>
 </section>
